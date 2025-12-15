@@ -1075,9 +1075,26 @@ section {
         min-height: 150px;
     }
 
+    /* スマホ用ヘッダーバナー */
+    .nav {
+        padding-top: 0;
+    }
+
+    .nav::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 50px;
+        background-image: url('header-mobile.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
     /* ロゴサイズ調整 - モバイル */
     .nav-logo img {
         height: 60px;
+        display: none;
     }
 
     /* ハンバーガーメニュー - モバイル表示 */
