@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>サロン向け水素美容導入資料 - てのひらオアシスH₂calm</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .password-container {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--light-beige);
+        }
+
+        .password-box {
+            background: var(--white);
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            border: 3px solid var(--navy);
+        }
+
+        .password-box h1 {
+            font-size: 24px;
+            color: var(--navy);
+            margin-bottom: 15px;
+            font-family: 'Noto Serif JP', serif;
+        }
+
+        .password-box p {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid var(--beige);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        .password-input:focus {
+            outline: none;
+            border-color: var(--navy);
+        }
+
+        .password-submit {
+            width: 100%;
+            padding: 15px;
+            background: var(--navy);
+            color: var(--beige);
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        .password-submit:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .error-message {
+            color: #ff6b6b;
+            font-size: 14px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .presentation-content {
+            display: none;
+            padding: 60px 0;
+            background: var(--light-beige);
+        }
+
+        .presentation-content.show {
+            display: block;
+        }
+
+        .slide-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .slide-item {
+            background: var(--white);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .slide-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .slide-number {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .back-button {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .presentation-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .presentation-header h1 {
+            font-size: 32px;
+            color: var(--navy);
+            margin-bottom: 15px;
+            font-family: 'Noto Serif JP', serif;
+        }
+
+        .presentation-header p {
+            font-size: 16px;
+            color: var(--text-light);
+        }
+
+        @media (max-width: 768px) {
+            .password-box {
+                padding: 30px 20px;
+            }
+
+            .password-box h1 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ナビゲーション -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="logo-header.png" alt="てのひらオアシスH₂calm">
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-list">
+                <li><a href="index.html#home">ホーム</a></li>
+                <li><a href="index.html#worries">お悩み</a></li>
+                <li><a href="index.html#menu">メニュー</a></li>
+                <li><a href="index.html#effect">効果</a></li>
+                <li><a href="index.html#products">水素機器</a></li>
+                <li><a href="index.html#profile">サロン紹介</a></li>
+                <li><a href="index.html#contact">お問い合わせ</a></li>
+                <li><a href="salon-presentation.html">サロン様向け</a></li>
+            </ul>
+            <a href="https://line.me/R/ti/p/@149ullwk" class="nav-cta" target="_blank">LINE予約</a>
+        </div>
+    </nav>
+
+    <!-- パスワード入力 -->
+    <div class="password-container" id="passwordContainer">
+        <div class="password-box">
+            <h1>サロン向け水素美容導入資料</h1>
+            <p>この資料は関係者限定です。<br>パスワードを入力してください。</p>
+            <input type="password" id="passwordInput" class="password-input" placeholder="パスワードを入力">
+            <button onclick="checkPassword()" class="password-submit">確認</button>
+            <p class="error-message" id="errorMessage">パスワードが正しくありません</p>
+        </div>
+    </div>
+
+    <!-- プレゼンテーション資料 -->
+    <div class="presentation-content" id="presentationContent">
+        <div class="slide-container">
+            <div class="presentation-header">
+                <h1>水素美容導入資料</h1>
+                <p>サロン様向け勉強会資料（抜粋）</p>
+            </div>
+
+            <div class="slide-item">
+                <p class="slide-number">スライド 1 / 13</p>
+                <img src="presentation/suiso_slide_1.png" alt="スライド1">
+            </div>
+
+            <div class="slide-item">
+                <p class="slide-number">スライド 2 / 13</p>
+                <img src="presentation/suiso_slide_2.png" alt="スライド2">
+            </div>
+
+            <div class="slide-item">
+                <p class="slide-number">スライド 3 / 13</p>
+                <img src="presentation/suiso_slide_3.png" alt="スライド3">
+            </div>
+
+            <div class="slide-item">
+                <p class="slide-number">スライド 4 / 13</p>
+                <img src="presentation/suiso_slide_4.png" alt="スライド4">
+            </div>
+
+            <div class="slide-item">
+                <p class="slide-number">スライド 5 / 13</p>
+                <img src="presentation/suiso_slide_5.png" alt="スライド5">
+            </div>
+
+            <div class="slide-item">
+                <p class="slide-number">スライド 6 / 13</p>
+                <img src="presentation/suiso_slide_6.png" alt="スライド6">
+            </div>
+
+            <div class="slide-item">
+                <p class="slide-number">スライド 7 / 13</p>
+                <img src="presentation/suiso_slide_7.png" alt="スライド7">
+            </div>
+
+            <div class="slide-item">
+                <p class="slide-number">スライド 8 / 13</p>
+                <img src="presentation/suiso_slide_8.png" alt="スライド8">
+            </div>
+
+            <div class="slide-item">
+                <p class="slide-number">スライド 9 / 13</p>
+                <img src="presentation/suiso_slide_9.png" alt="スライド9">
+            </div>
+
+            <div class="slide-item">
+                <p class="slide-number">スライド 10 / 13</p>
+                <img src="presentation/suiso_slide_10.png" alt="スライド10">
+            </div>
+
+            <div class="slide-item">
+                <p class="slide-number">スライド 11 / 13</p>
+                <img src="presentation/suiso_slide_11.png" alt="スライド11">
+            </div>
+
+            <div class="slide-item">
+                <p class="slide-number">スライド 12 / 13</p>
+                <img src="presentation/suiso_slide_12.png" alt="スライド12">
+            </div>
+
+            <div class="slide-item">
+                <p class="slide-number">スライド 13 / 13</p>
+                <img src="presentation/suiso_slide_13.png" alt="スライド13">
+            </div>
+
+            <div class="back-button">
+                <a href="index.html" class="btn-outline">トップページに戻る</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="privacy.html">プライバシーポリシー・<br class="sp-br">個人情報の取り扱い</a>
+        </div>
+        <p>&copy; 2025 てのひらオアシスH₂calm. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // パスワード設定（必要に応じて変更してください）
+        const correctPassword = "suiso2025";
+
+        function checkPassword() {
+            const input = document.getElementById('passwordInput').value;
+            const errorMessage = document.getElementById('errorMessage');
+            const passwordContainer = document.getElementById('passwordContainer');
+            const presentationContent = document.getElementById('presentationContent');
+
+            if (input === correctPassword) {
+                passwordContainer.style.display = 'none';
+                presentationContent.classList.add('show');
+                errorMessage.style.display = 'none';
+
+                // セッションストレージに認証情報を保存
+                sessionStorage.setItem('salonAuth', 'true');
+            } else {
+                errorMessage.style.display = 'block';
+                document.getElementById('passwordInput').value = '';
+            }
+        }
+
+        // Enterキーでも送信可能に
+        document.getElementById('passwordInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        // ページ読み込み時に認証状態をチェック
+        window.addEventListener('load', function() {
+            if (sessionStorage.getItem('salonAuth') === 'true') {
+                document.getElementById('passwordContainer').style.display = 'none';
+                document.getElementById('presentationContent').classList.add('show');
+            }
+        });
+    </script>
+</body>
+</html>
